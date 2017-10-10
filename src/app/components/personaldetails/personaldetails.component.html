@@ -1,0 +1,35 @@
+
+<div class="content-wrapper" [formGroup]="rForm">
+  <div class="personal-details-pannerl">
+      <div class="wrapper">
+        <div class="extra-params">
+          <div class="form-item-types">
+              <md-select placeholder="Param Type" class="params-select" formControlName="param_id">
+              <md-option *ngFor="let param of params" [value]="param.id">
+                {{ param.lable_name }}
+              </md-option>
+            </md-select>
+          </div>
+          <div class="form-item-types">
+            <md-select placeholder="Column"
+             
+              formControlName="coloumn">
+              <md-option *ngFor="let coloumn of coloumns"
+                (click)="onSelectColumn(feildIndex,coloumn.id)"
+                [value]="coloumn.id" >
+                {{ coloumn.value }}
+              </md-option>
+            </md-select>
+          </div> 
+          <div class="form-item-types">
+            <md-select placeholder="Heading" [disabled]="!sectionHeadings[feildIndex]"  formControlName="headings">
+              <md-option *ngFor="let heading of sectionHeadings[feildIndex]" [value]="heading.id">
+                {{ heading.value }}
+              </md-option>
+            </md-select>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+    

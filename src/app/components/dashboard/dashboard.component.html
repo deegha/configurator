@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="mat-elevation-z8">
+    <md-card>
+      <md-table #table [dataSource]="dataSource" >
+
+        <ng-container mdColumnDef="ID">
+          <md-header-cell *mdHeaderCellDef> ID </md-header-cell>
+          <md-cell *mdCellDef="let product"> {{product.id}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="Product Name" >
+          <md-header-cell *mdHeaderCellDef> Product Name </md-header-cell>
+          <md-cell *mdCellDef="let product"> {{product.product_name}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="Product Code">
+          <md-header-cell *mdHeaderCellDef> Product Code </md-header-cell>
+          <md-cell *mdCellDef="let product"> {{product.product_code}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="Status">
+          <md-header-cell *mdHeaderCellDef> Status </md-header-cell>
+          <md-cell *mdCellDef="let product">
+              <span *ngIf="status(product.status) == 1">
+                  <button 
+                    md-raised-button 
+                    [disabled]="status(product.status)" 
+                    color="primary">Deactivate</button>
+              </span>
+              <span *ngIf="status(product.status) == 0" >
+                  <button 
+                    md-raised-button 
+                    [disabled]="status(product.status)" 
+                    color="warn" 
+                  class="btn-table">Activate</button>
+              </span>
+          </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="Action" >
+          <md-header-cell *mdHeaderCellDef></md-header-cell>
+          <md-cell *mdCellDef="let product"> 
+            
+              <button (click)="clickRow(product)" 
+                      id="product.id" 
+                      [disabled]="status(product.status)" 
+                      md-raised-button 
+                      color="accent">Configure</button>
+          </md-cell>
+        </ng-container>
+
+        <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *mdRowDef="let row; columns: displayedColumns;"
+                [ngClass]="row.config === 0 ? 'deselected' : ''">
+        </md-row>
+      </md-table>
+    </md-card>
+  </div>
+</div>

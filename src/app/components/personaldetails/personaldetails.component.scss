@@ -1,0 +1,45 @@
+@import '../../../variables';
+
+.content-wrapper {
+  width: 100%;
+  md-card-subtitle {
+     font-size: $sub-header-font-size
+  }
+  
+  .wrapper{
+    width: 100%;
+    .add-extra-params {
+      cursor: pointer;
+      width: 10%;
+      display: inline-flex;
+      .extra-param-text{
+        padding: 4px;
+        
+      }
+    }
+    .extra-params md-form-field{
+      display: inline-flex;
+      width: 100%
+    }
+  }
+  .new-params-holder{
+    display: block;
+  }
+
+  .extra-params{
+    display: inline-flex;
+    .form-item-types  {
+      .mat-select-trigger{
+        min-width: 200px !important;
+      }
+      margin-right: 50px;
+      select {
+        span{
+          width: 400px;
+        }
+        
+      }
+    }
+  }
+ 
+}

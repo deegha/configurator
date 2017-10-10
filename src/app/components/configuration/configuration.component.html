@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="common-wrapper">
+    <div class="product-name">
+        <h1>{{product?.maininfo.productAbbreviation}}</h1>
+    </div>
+    <form (ngSubmit)="onSubmit(configureForm.value)" [formGroup]="configureForm">  
+      <md-card>
+          <md-card-content>
+            <md-card-title>Product</md-card-title>
+            <div class="product-content">
+              <div class="warapper">
+                <md-card-subtitle>Product Relationship Styles</md-card-subtitle>
+                <div class="wrapper-inner">
+                    <md-radio-group id="productLifeRelationship" 
+                        [(ngModel)]="productLifeRelationship"
+                        formControlName="productLifeRelationship" >
+                        
+                      <md-radio-button value="1">Single</md-radio-button>
+                      <md-radio-button value="2">Family</md-radio-button>
+                      <md-radio-button value="3">Joint</md-radio-button>
+                    </md-radio-group>
+                </div>
+              </div>
+
+              <div class="warapper">
+                <md-card-subtitle>Channel</md-card-subtitle>
+                <div class="wrapper-inner">
+                    <md-radio-group   id="channel" 
+                      formControlName="channel" 
+                      [(ngModel)]="channel">
+                      <md-radio-button  
+                      *ngFor="let channel of channels"  
+                      value="{{channel.id}}">{{channel.name}}</md-radio-button>
+                    </md-radio-group>
+                </div>
+              </div>
+            </div>
+          </md-card-content>
+      </md-card>
+      <md-card>
+          <md-card-content>
+            <md-card-title>Riders</md-card-title>
+            <div class="warapper">
+              <div *ngFor="let rider of product?.attachedRiders" 
+                    class="rider-wrapper">
+                <div class="rider-name">
+                  {{rider.riderProductCode}}
+                </div>
+                <div class="relationship">
+                  <section class="example-section" @explainerAnim>
+                    <md-checkbox *ngIf="productLifeRelationship == 1 || productLifeRelationship == 2 || productLifeRelationship == 3"
+                      [name]="rider.riderProductCode"
+                      [checked]="main"
+                      [ngClass]="{'life-check': productLifeRelationship == 1 || productLifeRelationship == 2 || productLifeRelationship == 3}" 
+                      
+                      (change)="onCheckRelationship($event, 1)">
+                      Main Life
+                    </md-checkbox>
+
+                    <md-checkbox *ngIf="productLifeRelationship == 2" 
+                      [name]="rider.riderProductCode"
+                      [ngClass]="{'life-check': productLifeRelationship == 2}"
+                      (change)="onCheckRelationship($event, 2)">
+                      Spouse
+                    </md-checkbox>
+
+                    <md-checkbox *ngIf="productLifeRelationship == 2" 
+                      [name]="rider.riderProductCode"
+                      [ngClass]="{'life-check': productLifeRelationship == 2}"
+                      (change)="onCheckRelationship($event, 3)">
+                      Child
+                    </md-checkbox>
+
+                    <md-checkbox *ngIf="productLifeRelationship == 3" 
+                      [name]="rider.riderProductCode"
+                      [ngClass]="{'life-check': productLifeRelationship == 3}"
+                      (change)="onCheckRelationship($event, 4)">
+                      Join
+                    </md-checkbox>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </md-card-content>
+      </md-card>
+      <md-card>
+        <md-card-title>
+            Extra Fields
+        </md-card-title>
+        <md-card-content>
+          <div class="warapper">
+            <div formArrayName="extraFeild" [@listAnimation]="configureForm.controls.extraFeild.controls.length">
+              <div *ngFor="let extraFeild of configureForm.controls.extraFeild.controls; let i=index">
+                <div class="additional-feild-container" >
+                  <i class="material-icons clear-btn-addinput" (click)="removeFeild(i)">clear</i>
+                  <app-personaldetails 
+                    [feildIndex] = "i"
+                    [group]="configureForm.controls.extraFeild.controls[i]"></app-personaldetails>
+                </div>
+              </div>
+            </div>
+            <div class="add-feild">
+                <a (click)="addFeild()">
+                    <i class="material-icons clear-btn-addinput">add</i> Add feild to product
+                </a>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+      <div class="submit-btn-area">
+        <button type="submit" 
+          [disabled]="!configureForm.valid"
+          md-raised-button 
+          color="primary">Set Configuration</button>
+      </div>
+    </form>
+    <ngx-loading 
+      [show]="loading" 
+      [config]="{ backdropBorderRadius: '14px' }">
+    </ngx-loading>
+  </div>
+</div>

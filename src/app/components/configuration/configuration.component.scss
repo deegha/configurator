@@ -1,0 +1,78 @@
+@import '../../../variables';
+
+.container{
+  padding: 50px 50px;
+  .product-name {
+    h1{
+      font-weight: 100;
+    }
+  }
+  .warapper{
+    padding: 20px 10px;
+    .wrapper-inner{
+      md-radio-group{
+        display: inline-flex;
+        width: 50%;
+        justify-content: space-between;
+      }
+    }
+  }
+  .submit-btn-area{
+    margin: 10px 0;
+    button {  
+      float: right;
+    }
+  }
+  md-card {
+    margin: 20px 0;
+  }
+  .rider-wrapper{
+    width: 100%;
+    .rider-name, .relationship {
+      display: inline-block;
+    }
+    .rider-name {
+      width: 20%;
+    }
+    .relationship {
+      width: 50%;
+      section{
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-evenly;
+      }
+    }
+  }
+  md-card-subtitle {
+    font-size: $sub-header-font-size
+  }
+  .add-feild{
+
+    a {
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      margin-top: 10px;
+      color: $primary-green;
+      i{
+        position: relative;
+        top:7px;
+        color:$primary-green;
+        font-weight: 800;
+      }
+    }
+  }
+  .additional-feild-container{
+    display: inline-flex;
+    i{
+      margin-top: 40px;
+      position: relative;
+      top:-20px;
+      color:#c0392b;
+      font-weight: 800;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+  }
+}
+
