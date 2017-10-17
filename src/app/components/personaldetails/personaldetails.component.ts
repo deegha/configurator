@@ -39,7 +39,7 @@ export class PersonaldetailsComponent implements OnInit {
     
   }  
 
-  onSelectColumn(feidId, col) { console.log(col)
+  onSelectColumn(feidId, col) { 
     this.configurationService.getHeadings(col).then (response => {
       this.sectionHeadings[feidId] = response
       this.loading = false

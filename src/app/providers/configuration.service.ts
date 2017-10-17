@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 import * as SampleData from  './SampleData';
 import * as constants from '../common/constants'
@@ -87,9 +89,20 @@ export class ConfigurationService {
     })
   }
 
-  setConfiguration(data) {
+  // setConfiguration(data) { console.log(data)
+  //   return new Promise(resolve => {
+  //     resolve(true)
+  //   })
+  // }
+  setConfiguration(data:any): Observable<any> {console.log(data)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.api_url, data, options) 
+  }
+
+  getAllNeeds() : Promise<any[]> {
     return new Promise(resolve => {
-      resolve(true)
+      resolve(SampleData.needs)
     })
   }
-}
+} 

@@ -41,12 +41,12 @@ import { Configurator } from '../../models/configurarator'
         transition('* => *', [
           query('.life-check', style({ opacity: 0, transform: 'translateX(-40px)' }), {optional: true}),
   
-          query('.life-check', stagger('500ms', [
+          query('.life-check', stagger('100ms', [
             animate('800ms ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
           ]), {optional: true}),
   
           query('.life-check', [
-            animate(1000, style('*'))
+            animate(100, style('*'))
           ], {optional: true})
           
         ])
@@ -82,14 +82,24 @@ export class ConfigurationComponent implements OnInit {
                   this.product_code  = params['product_code']
                   this.configurationService
                   .getProduct(params['product_code'])
-                    .then(response=> {
-                      let productResponse = <any>response
-                      this.product = productResponse.productInfo
-                      this.initRiderArray(this.product.attachedRiders);
+                    .then(response => {
                       this.buildForm();
+
+                      let productResponse = <any>response
+                      this.product = productResponse
+                      console.log()
+                      this.initRiderArray(this.product.attachedRiders);
+                     
                       this.configurationService.getChannels().then(res => {
-                      this.channels = res
+                        this.channels = res
                       }).catch()
+                      this.configurationService.getAllNeeds().then(response => {
+                          response.map(need => {
+                            const control = <FormArray>this.configureForm.controls['needs'];
+                            const needCtrl = this.initNeeds(need)
+                            control.push(needCtrl);
+                          })
+                      })
                       this.loading = false
                   })
                 }, err => {
@@ -101,71 +111,45 @@ export class ConfigurationComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit(post) {
-    let arry : any[] = []
-    arry.push({
-      "slected-riders" : this.attachedRiders,
-      "other-detials" : post
-    })
-
-    this.configurationService.setConfiguration(arry).then(ers=>{
-      const message = {
-        content: 'Successful',
-        title: 'Successfully configured',
-        type: Type.SUCCESS
-      };
-      this.onConfigurationSuccess.emit()
-      this.gds.setNotification(message)
-      this.router.navigate(['/dashboard']);
-    })
+    console.log(JSON.stringify(post))
+    this.configurationService.setConfiguration(post)
   }
 
   initRiderArray(riders) {
     riders.map(rider => {
-      let riderCode = rider.riderProductCode
-      this.attachedRiders[riderCode] = 
-         {  
-          "main" : true,
-          "spouse" : false,
-          "child" : false,
-          "joint" : false,
-        }
+      const control = <FormArray>this.configureForm.controls['attachedRiders'];
+      const riderCtrl = this.initRelationship(rider.riderProductCode);
+      control.push(riderCtrl);
     })
   }
 
-  onCheckRelationship(event, relationship){
-    switch(relationship) {
-      case 1:
-        if(event.checked)
-          this.attachedRiders[event.source.name].main = true;
-        else
-          this.attachedRiders[event.source.name].main = false;
-        break
-      case 2:
-        if(event.checked)
-          this.attachedRiders[event.source.name].spouse = true;
-        else
-          this.attachedRiders[event.source.name].spouse = false;
-        break
-      case 3:
-        if(event.checked)
-          this.attachedRiders[event.source.name].child = true;
-        else
-          this.attachedRiders[event.source.name].child = false;
-        break
-      case 4:
-        if(event.checked)
-          this.attachedRiders[event.source.name].joint = true;
-        else
-          this.attachedRiders[event.source.name].joint = false;
-        break
-    }
+  initNeeds(need): FormGroup {
+    return this.formBuilder.group({
+      id : [need.id, ""],
+      lable : [need.lable, ""],
+      value : [need.value, ""],
+      need : [false, ""]
+    });
+  }
+
+  initRelationship(productName) : FormGroup {
+    return this.formBuilder.group({
+      productCode : [productName, ""],
+      mainLife  : [true, ""],
+      spouse    : [false, ""],
+      child     : [false, ""],
+      join      : [false, ""],
+      sumAssured: [, ""],
+      default   : [false, ""],
+    })
   }
 
   initFeild(): FormGroup {
     return this.formBuilder.group({
       param_id : ['', Validators.required],
       coloumn  : ['', Validators.required],
-      headings : ['', Validators.required]
+      headings : ['', Validators.required],
+      feildTab : ['1', ]
     });
   }
 
@@ -189,7 +173,9 @@ export class ConfigurationComponent implements OnInit {
     this.configureForm = this.formBuilder.group({
       productLifeRelationship: ['1', Validators.required],
       channel: ['', Validators.required],
-      extraFeild: this.formBuilder.array([ ])
+      extraFeild: this.formBuilder.array([]),
+      attachedRiders :  this.formBuilder.array([ ]),
+      needs :  this.formBuilder.array([ ]),
     });
   }  
 }

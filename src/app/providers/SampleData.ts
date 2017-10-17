@@ -113,6 +113,71 @@ export const channels = [
   }
 ]
 
+
+export const needs = [  
+    {  
+       "id":1,
+       "value":"retirement",
+       "lable":"Retirement",
+       "status":1,
+       "created_at":"2017-09-28 00:00:00",
+       "updated_at":"2017-09-28 00:00:00",
+       "created_by":0,
+       "updated_by":0
+    },
+    {  
+       "id":2,
+       "value":"future_savings",
+       "lable":"Future Savings",
+       "status":1,
+       "created_at":"2017-09-28 00:00:00",
+       "updated_at":"2017-09-28 00:00:00",
+       "created_by":0,
+       "updated_by":0
+    },
+    {  
+       "id":3,
+       "value":"health",
+       "lable":"Health",
+       "status":1,
+       "created_at":"2017-09-28 00:00:00",
+       "updated_at":"2017-09-28 00:00:00",
+       "created_by":0,
+       "updated_by":0
+    },
+    {  
+       "id":4,
+       "value":"protection",
+       "lable":"Protection",
+       "status":1,
+       "created_at":"2017-09-28 00:00:00",
+       "updated_at":"2017-09-28 00:00:00",
+       "created_by":0,
+       "updated_by":0
+    },
+    {  
+       "id":5,
+       "value":"investment",
+       "lable":"Investment",
+       "status":1,
+       "created_at":"2017-09-28 00:00:00",
+       "updated_at":"2017-09-28 00:00:00",
+       "created_by":0,
+       "updated_by":0
+    },
+    {  
+       "id":6,
+       "value":"education",
+       "lable":"Education",
+       "status":1,
+       "created_at":"2017-09-28 00:00:00",
+       "updated_at":"2017-09-28 00:00:00",
+       "created_by":0,
+       "updated_by":0
+    }
+ ]
+  
+
 export const columns = [
     {"id" : "1", "value" :  "Column 1"},
     {"id" : "2", "value" :  "Column 2"},
@@ -750,465 +815,193 @@ export const params = [
     }
  ]
 
-export const product = {
-  "clientRequestId": null,
-  "clientRequestTime": null,
-  "result": 1,
-  "messages": null,
-  "exceptions": null,
-  "serviceReqTime": null,
-  "serviceResTime": null,
-  "productInfo": {
-      "productId": 2000159,
-      "benefitType": "41",
-      "maininfo": {
-          "mainPlan": "Y",
-          "orgId": 1,
-          "currency": 29,
-          "familyType": "0",
-          "startDate": "2007-05-07T00:00:00",
-          "indexIndi": "N",
-          "endDate": null,
-          "productName": "Union Advantage",
-          "productCode": "014",
-          "productDescription": "Fund accumulation type product.",
-          "productAbbreviation": "Union Advantage",
-          "salesCategory": null
-      },
-      "premSaCalc": {
-          "ageBase": "1",
-          "unitFlag": "6",
-          "waiver": false,
-          "premiumFrequency": [
-              "1",
-              "2",
-              "3",
-              "4"
-          ]
-      },
-      "bonus": {
-          "cashBonus": false,
-          "cashBonusVestYear": 0,
-          "cashBonusUnitAmount": null,
-          "cashBonusOptions": null
-      },
-      "liability": {
-          "annuity": false,
-          "survivalBenefitOptions": null,
-          "liabilities": []
-      },
-      "attachedRiders": [
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000157,
-              "riderProductCode": "USH",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 99,
-              "riderSa2MainPremRate": 9999,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000165,
-              "riderProductCode": "HCB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 1,
-              "riderSa2MainPremRate": 0.1,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 2
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000166,
-              "riderProductCode": "SPB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 1,
-              "riderSa2MainPremRate": 9999,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000186,
-              "riderProductCode": "ADB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 1,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 2,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000187,
-              "riderProductCode": "EPD",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 1,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 2,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000188,
-              "riderProductCode": "TPA",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 1,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 2,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000189,
-              "riderProductCode": "TPS",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 1,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 2,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000190,
-              "riderProductCode": "LTB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 5,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000191,
-              "riderProductCode": "FEB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 0.5,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000192,
-              "riderProductCode": "FIB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 1,
-              "riderSa2MainPremRate": 5,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 2
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000193,
-              "riderProductCode": "SMB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 1,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000197,
-              "riderProductCode": "HCC",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 1,
-              "riderSa2MainPremRate": 0.1,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 2
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000198,
-              "riderProductCode": "CSB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 1,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000199,
-              "riderProductCode": "CHB",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 1,
-              "riderSa2MainPremRate": 0,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          },
-          {
-              "masterProductId": 2000159,
-              "masterProductCode": "014",
-              "riderProductId": 2000200,
-              "riderProductCode": "WP",
-              "attachType": "1",
-              "attachRelation": "N",
-              "maxAttachedSa": 9999999999999999,
-              "minAttachSa2MainSaRate": 0,
-              "maxTotalSa2MainSaRate": null,
-              "maxAttachSa2MainSaRate": 99,
-              "riderSa2MainPremRate": 9999,
-              "saNoEqual": "W",
-              "minAthAge": 0,
-              "maxAthAge": 999,
-              "minAthMastAge": 0,
-              "maxAthMastAge": 999,
-              "minMastSaAmount": 0,
-              "totalOverRate": 99
-          }
-      ],
-      "productCoverMultiple": {
-          "coverMultipleItems": [
-              {
-                  "productCode": "014",
-                  "ageRange": "[18,46)",
-                  "termRange": "[10,15)",
-                  "minValue": 5,
-                  "maxValue": 10
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[18,46)",
-                  "termRange": "[15,20)",
-                  "minValue": 5,
-                  "maxValue": 15
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[18,46)",
-                  "termRange": "[20,31)",
-                  "minValue": 5,
-                  "maxValue": 20
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[46,51)",
-                  "termRange": "[10,15)",
-                  "minValue": 5,
-                  "maxValue": 8
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[46,51)",
-                  "termRange": "[15,20)",
-                  "minValue": 5,
-                  "maxValue": 10
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[46,51)",
-                  "termRange": "[20,31)",
-                  "minValue": 5,
-                  "maxValue": 18
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[51,56)",
-                  "termRange": "[10,15)",
-                  "minValue": 5,
-                  "maxValue": 6
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[51,56)",
-                  "termRange": "[15,20)",
-                  "minValue": 5,
-                  "maxValue": 10
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[51,56)",
-                  "termRange": "[20,31)",
-                  "minValue": 5,
-                  "maxValue": 15
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[56,61)",
-                  "termRange": "[10,15)",
-                  "minValue": 5,
-                  "maxValue": 5
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[56,61)",
-                  "termRange": "[15,20)",
-                  "minValue": 5,
-                  "maxValue": 8
-              },
-              {
-                  "productCode": "014",
-                  "ageRange": "[61,66)",
-                  "termRange": "[10,15)",
-                  "minValue": 5,
-                  "maxValue": 5
-              }
-          ]
-      },
-      "listProductFund": [
-          {
-              "productId": 2000159,
-              "fundCode": "40",
-              "minPartialWithdralval": 0,
-              "minPartialWithdralRemainingVal": 0,
-              "minSwitOutVal": 0,
-              "minSwitRemainVal": 0,
-              "switchPeriodUnit": "1",
-              "maxSwitInTimes": 2,
-              "maxSwitOutTimes": 2,
-              "maxPartialWithdralVal": null,
-              "settleRatePeriodUnit": "1",
-              "settleYearType": 0,
-              "settleFreq": "4",
-              "settleMonth": null,
-              "settleDay": 1,
-              "settleMethod": 1,
-              "guaranteedRateOption": 2,
-              "settleSimpleCompound": "2",
-              "bonusSettleType": 1
-          }
-      ]
-  }
-}
+export const product = {  
+    "productLifeRelationship":1,
+    "channel":"2",
+    "extraFeild":[  
+       {  
+          "param_id":3,
+          "coloumn":"2",
+          "headings":"2",
+          "feildTab":"2"
+       }
+    ],
+    "attachedRiders":[  
+       {  
+          "productCode":"USH",
+          "mainLife":true,
+          "spouse":true,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"HCB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"SPB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"ADB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"EPD",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"TPA",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"TPS",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"LTB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"FEB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"FIB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"SMB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"HCC",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"CSB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"CHB",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       },
+       {  
+          "productCode":"WP",
+          "mainLife":true,
+          "spouse":false,
+          "child":false,
+          "join":false,
+          "sumAssured":null,
+          "default":false
+       }
+    ],
+    "needs":[  
+       {  
+          "id":1,
+          "lable":"Retirement",
+          "value":"retirement",
+          "need":true
+       },
+       {  
+          "id":2,
+          "lable":"Future Savings",
+          "value":"future_savings",
+          "need":true
+       },
+       {  
+          "id":3,
+          "lable":"Health",
+          "value":"health",
+          "need":true
+       },
+       {  
+          "id":4,
+          "lable":"Protection",
+          "value":"protection",
+          "need":true
+       },
+       {  
+          "id":5,
+          "lable":"Investment",
+          "value":"investment",
+          "need":false
+       },
+       {  
+          "id":6,
+          "lable":"Education",
+          "value":"education",
+          "need":false
+       }
+    ]
+ }
+
+
+// singleProduct

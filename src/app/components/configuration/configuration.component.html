@@ -7,6 +7,7 @@
       <md-card>
           <md-card-content>
             <md-card-title>Product</md-card-title>
+          
             <div class="product-content">
               <div class="warapper">
                 <md-card-subtitle>Product Relationship Styles</md-card-subtitle>
@@ -34,61 +35,79 @@
                     </md-radio-group>
                 </div>
               </div>
+             
             </div>
           </md-card-content>
       </md-card>
       <md-card>
-          <md-card-content>
+          <md-card-content  @explainerAnim >
             <md-card-title>Riders</md-card-title>
-            <div class="warapper">
-              <div *ngFor="let rider of product?.attachedRiders" 
-                    class="rider-wrapper">
+            <div class="warapper life-check"  formArrayName="attachedRiders">
+              <div *ngFor="let rider of configureForm.controls.attachedRiders.controls; let i=index" 
+                    class="rider-wrapper" [formGroup]="configureForm.controls.attachedRiders.controls[i]">
                 <div class="rider-name">
-                  {{rider.riderProductCode}}
+                  <div class="rider-name-block">
+                    {{rider.value.productCode}}
+                  </div>
+                  
+                  <div class="wrapper-default-check">
+                    <md-checkbox 
+                      formControlName="default"
+                      color = "primary">
+                      Default
+                    </md-checkbox>
+                    <md-form-field 
+                      *ngIf="rider.value.default"
+                      class="sum-assured" >
+                      <input mdInput
+                            formControlName="sumAssured" 
+                            placeholder="Sum assured">
+                    </md-form-field>
+                  </div>
                 </div>
+                
                 <div class="relationship">
-                  <section class="example-section" @explainerAnim>
-                    <md-checkbox *ngIf="productLifeRelationship == 1 || productLifeRelationship == 2 || productLifeRelationship == 3"
-                      [name]="rider.riderProductCode"
-                      [checked]="main"
-                      [ngClass]="{'life-check': productLifeRelationship == 1 || productLifeRelationship == 2 || productLifeRelationship == 3}" 
-                      
-                      (change)="onCheckRelationship($event, 1)">
+                  <section>
+                    <md-checkbox 
+                      *ngIf     = "productLifeRelationship == 1 || productLifeRelationship == 2 || productLifeRelationship == 3"
+                      formControlName="mainLife"
+                      [checked] = "main">
                       Main Life
                     </md-checkbox>
 
-                    <md-checkbox *ngIf="productLifeRelationship == 2" 
-                      [name]="rider.riderProductCode"
-                      [ngClass]="{'life-check': productLifeRelationship == 2}"
-                      (change)="onCheckRelationship($event, 2)">
+                    <md-checkbox 
+                      formControlName="spouse"
+                      *ngIf   = "productLifeRelationship == 2" >
                       Spouse
                     </md-checkbox>
 
-                    <md-checkbox *ngIf="productLifeRelationship == 2" 
-                      [name]="rider.riderProductCode"
-                      [ngClass]="{'life-check': productLifeRelationship == 2}"
-                      (change)="onCheckRelationship($event, 3)">
+                    <md-checkbox 
+                      formControlName="child"
+                      *ngIf   = "productLifeRelationship == 2" >
                       Child
                     </md-checkbox>
 
-                    <md-checkbox *ngIf="productLifeRelationship == 3" 
-                      [name]="rider.riderProductCode"
-                      [ngClass]="{'life-check': productLifeRelationship == 3}"
-                      (change)="onCheckRelationship($event, 4)">
+                    <md-checkbox 
+                      formControlName="join"
+                      *ngIf   = "productLifeRelationship == 3" >
                       Join
                     </md-checkbox>
+                    
                   </section>
                 </div>
+                
+             
               </div>
             </div>
           </md-card-content>
       </md-card>
       <md-card>
         <md-card-title>
-            Extra Fields
+            Feilds
         </md-card-title>
         <md-card-content>
           <div class="warapper">
+            <md-card-subtitle>Extra Fields</md-card-subtitle>
             <div formArrayName="extraFeild" [@listAnimation]="configureForm.controls.extraFeild.controls.length">
               <div *ngFor="let extraFeild of configureForm.controls.extraFeild.controls; let i=index">
                 <div class="additional-feild-container" >
@@ -105,8 +124,21 @@
                 </a>
             </div>
           </div>
+          <div class="warapper">
+              <md-card-subtitle>Needs</md-card-subtitle>
+              <div class="wrapper-needs" formArrayName="needs">
+                <div *ngFor="let need of configureForm.controls.needs.controls; let i=index"
+                [formGroup]="configureForm.controls.needs.controls[i]" >
+                    <md-checkbox 
+                      formControlName="need" >
+                      {{need.value.lable}}
+                    </md-checkbox>
+                </div>
+              </div>
+            </div>
         </md-card-content>
       </md-card>
+      
       <div class="submit-btn-area">
         <button type="submit" 
           [disabled]="!configureForm.valid"

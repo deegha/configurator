@@ -19,7 +19,7 @@ import 'rxjs/add/observable/of'
 export class DashboardComponent implements OnInit {
   constructor(public configurationService:ConfigurationService, 
               private router : Router) {}
- 
+
   displayedColumns = ['ID', 'Product Name', 'Product Code', 'Status', 'Action']
   dataSource = new TableDataSource(this.configurationService);
 

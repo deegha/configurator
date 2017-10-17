@@ -21,18 +21,19 @@
         <ng-container mdColumnDef="Status">
           <md-header-cell *mdHeaderCellDef> Status </md-header-cell>
           <md-cell *mdCellDef="let product">
-              <span *ngIf="status(product.status) == 1">
+              <span *ngIf="status(product.status) === true">
                   <button 
                     md-raised-button 
                     [disabled]="status(product.status)" 
                     color="primary">Deactivate</button>
               </span>
-              <span *ngIf="status(product.status) == 0" >
+              <span *ngIf="status(product.status) === false" >
                   <button 
                     md-raised-button 
                     [disabled]="status(product.status)" 
                     color="warn" 
-                  class="btn-table">Activate</button>
+                    (click)="activate"
+                    class="btn-table">Activate</button>
               </span>
           </md-cell>
         </ng-container>

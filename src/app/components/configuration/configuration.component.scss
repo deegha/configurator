@@ -30,9 +30,13 @@
     width: 100%;
     .rider-name, .relationship {
       display: inline-block;
+      
     }
     .rider-name {
-      width: 20%;
+      width: 22%;
+      md-checkbox {
+        margin-left: 10px;
+      }
     }
     .relationship {
       width: 50%;
@@ -73,6 +77,11 @@
       cursor: pointer;
       margin-right: 20px;
     }
+  }
+
+  .sum-assured{
+    width : 100px;
+    padding-left : 10px;
   }
 }
 
