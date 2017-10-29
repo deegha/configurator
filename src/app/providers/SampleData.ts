@@ -1,82 +1,197 @@
 import {Element} from '../models/product';
 
-export const sampleData: Element[] = [  
+export const sampleData: any[] = [  
   {  
      "id":1,
+     "ebo_product_id":"2000213",
      "product_name":"Union Parithyaga",
      "product_code":"001",
-     "status":1,
-     "config":0,
-     "created_at":"2017-09-19 06:20:00",
-     "updated_at":"2017-09-19 06:20:00",
-     "created_by":0,
-     "updated_by":0
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
   },
   {  
      "id":2,
-     "product_name":"Union Jayamaga",
-     "product_code":"010",
-     "status":0,
-     "config":0,
-     "created_at":"2017-09-19 06:20:00",
-     "updated_at":"2017-09-19 06:20:00",
-     "created_by":0,
-     "updated_by":0
+     "ebo_product_id":"3000055",
+     "product_name":"Decreasing Term Assurance, Educational loan",
+     "product_code":"005-BL",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
   },
   {  
      "id":3,
-     "product_name":"Union Advantage",
-     "product_code":"014",
-     "status":0,
-     "config":1,
-     "created_at":"2017-09-19 06:20:00",
-     "updated_at":"2017-09-20 09:19:46",
-     "created_by":0,
-     "updated_by":0
+     "ebo_product_id":"3000054",
+     "product_name":"Decreasing Term Assurance, Educational loan",
+     "product_code":"005-EL",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
   },
   {  
      "id":4,
-     "product_name":"Union Super Benefit",
-     "product_code":"025",
-     "status":0,
-     "config":0,
-     "created_at":"2017-09-19 06:20:00",
-     "updated_at":"2017-09-19 06:20:00",
-     "created_by":0,
-     "updated_by":0
+     "ebo_product_id":"3000053",
+     "product_name":"Decreasing Term Assurance, Housing/Mortgage loan",
+     "product_code":"005-HL",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
   },
   {  
      "id":5,
-     "product_name":"Union Builder",
-     "product_code":"ILP-BLD",
-     "status":0,
-     "config":0,
-     "created_at":"2017-09-19 06:20:00",
-     "updated_at":"2017-09-19 06:20:00",
-     "created_by":0,
-     "updated_by":0
+     "ebo_product_id":"3000056",
+     "product_name":"Decreasing Term Assurance, Educational loan",
+     "product_code":"005-PL",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
   },
   {  
      "id":6,
-     "product_name":"Union Booster",
-     "product_code":"ILP-BST",
-     "status":0,
-     "config":0,
-     "created_at":"2017-09-19 06:20:00",
-     "updated_at":"2017-09-19 06:20:00",
-     "created_by":0,
-     "updated_by":0
+     "ebo_product_id":"2000211",
+     "product_name":"Union Jayamaga",
+     "product_code":"010",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":7,
+     "ebo_product_id":"2000159",
+     "product_name":"Union Advantage",
+     "product_code":"014",
+     "status":"0",
+     "config":"1",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
   },
   {  
      "id":8,
+     "ebo_product_id":"2000214",
+     "product_name":"Union Super Benefit",
+     "product_code":"025",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":9,
+     "ebo_product_id":"3000045",
+     "product_name":"Union Super Investor",
+     "product_code":"038",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":10,
+     "ebo_product_id":"3000046",
+     "product_name":"Union Advantage Single Premium",
+     "product_code":"046",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":11,
+     "ebo_product_id":"3000082",
+     "product_name":"Union Pension Advantage",
+     "product_code":"047",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":12,
+     "ebo_product_id":"3000078",
+     "product_name":"Union 60 Plus",
+     "product_code":"080",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":13,
+     "ebo_product_id":"3000079",
+     "product_name":"Union 60 Plus Diabetics",
+     "product_code":"081",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:22",
+     "updated_at":"2017-10-26 09:58:22",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":14,
+     "ebo_product_id":"2000229",
+     "product_name":"Union Builder",
+     "product_code":"ILP-BLD",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:23",
+     "updated_at":"2017-10-26 09:58:23",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":15,
+     "ebo_product_id":"2000241",
+     "product_name":"Union Booster",
+     "product_code":"ILP-BST",
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:23",
+     "updated_at":"2017-10-26 09:58:23",
+     "created_by":"0",
+     "updated_by":"0"
+  },
+  {  
+     "id":16,
+     "ebo_product_id":"2000248",
      "product_name":"Union Provider",
      "product_code":"ILP-PRV",
-     "status":0,
-     "config":0,
-     "created_at":"2017-09-20 03:37:41",
-     "updated_at":"2017-09-20 07:54:28",
-     "created_by":0,
-     "updated_by":0
+     "status":"0",
+     "config":"0",
+     "created_at":"2017-10-26 09:58:23",
+     "updated_at":"2017-10-26 09:58:23",
+     "created_by":"0",
+     "updated_by":"0"
   }
 ];
 
@@ -816,8 +931,8 @@ export const params = [
  ]
 
 export const product = {  
-    "productLifeRelationship":1,
-    "channel":"2",
+    "productLifeRelationship":2,
+    "channel":2,
     "extraFeild":[  
        {  
           "param_id":3,
@@ -830,7 +945,7 @@ export const product = {
        {  
           "productCode":"USH",
           "mainLife":true,
-          "spouse":true,
+          "spouse":false,
           "child":false,
           "join":false,
           "sumAssured":null,
@@ -838,8 +953,8 @@ export const product = {
        },
        {  
           "productCode":"HCB",
-          "mainLife":true,
-          "spouse":false,
+          "mainLife":false,
+          "spouse":true,
           "child":false,
           "join":false,
           "sumAssured":null,
@@ -1003,5 +1118,284 @@ export const product = {
     ]
  }
 
+ 
+ export const product2 = {  
+  "productLifeRelationship":"3",
+  "channel":"1",
+  "extraFeild":[  
+     {  
+        "product_id":"7",
+        "pram_id":"9",
+        "coloumn":"1",
+        "headings":"0",
+        "feildTab":"0"
+     }
+  ],
+  "attachedRiders":[  
+     {  
+        "productCode":"USH",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"HCB",
+        "mainLife":true,
+        "spouse":true,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":"250000",
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"SPB",
+        "mainLife":false,
+        "spouse":true,
+        "child":false,
+        "join":false,
+        "mainLife_sa":null,
+        "mainLife_default":false,
+        "spouse_sa":"250000",
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"ADB",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"EPD",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"TPA",
+        "mainLife":false,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":null,
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"TPS",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"LTB",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"FEB",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"FIB",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"SMB",
+        "mainLife":true,
+        "spouse":true,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":"250000",
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"HCC",
+        "mainLife":false,
+        "spouse":false,
+        "child":true,
+        "join":false,
+        "mainLife_sa":null,
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":"250000",
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"CSB",
+        "mainLife":true,
+        "spouse":true,
+        "child":true,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":"250000",
+        "spouse_default":false,
+        "child_sa":"250000",
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"CHB",
+        "mainLife":false,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":null,
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     },
+     {  
+        "productCode":"WP",
+        "mainLife":true,
+        "spouse":false,
+        "child":false,
+        "join":false,
+        "mainLife_sa":"250000",
+        "mainLife_default":false,
+        "spouse_sa":null,
+        "spouse_default":false,
+        "child_sa":null,
+        "child_default":false,
+        "join_sa":null,
+        "join_default":false
+     }
+  ],
+  "needs":[  
+     {  
+        "id":"1",
+        "lable":"Retirement",
+        "value":"retirement",
+        "status":true
+     },
+     {  
+        "id":"2",
+        "lable":"Future Savings",
+        "value":"future_savings",
+        "status":true
+     },
+     {  
+        "id":"3",
+        "lable":"Health",
+        "value":"health",
+        "status":true
+     },
+     {  
+        "id":"4",
+        "lable":"Protection",
+        "value":"protection",
+        "status":true
+     },
+     {  
+        "id":"5",
+        "lable":"Investment",
+        "value":"investment",
+        "status":true
+     },
+     {  
+        "id":"6",
+        "lable":"Education",
+        "value":"education",
+        "status":true
+     }
+  ]
+}
 
 // singleProduct

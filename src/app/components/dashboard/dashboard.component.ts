@@ -24,9 +24,9 @@ export class DashboardComponent implements OnInit {
   dataSource = new TableDataSource(this.configurationService);
 
   status(statusCode) { 
-    if(statusCode === 1)
+    if(statusCode === '1')
       return true
-    if(statusCode === 0)
+    if(statusCode === '0')
       return false
   }
 
@@ -42,13 +42,17 @@ export class TableDataSource extends DataSource<any> {
   constructor(public configurationService:ConfigurationService) {
     super()
     this.loading = true;
-    this.configurationService.getProducts().then((res : Element[])=>{ 
+    this.configurationService.getProducts().then((res : any[])=>{ 
+      console.log(res, "res" )
         this.products = res;
         this.loading  = false;
-    });
+        console.log(this.products)
+    }).catch(err => {
+      console.log(err)
+    })
   } 
-  products : Element[] ;
-  connect(): Observable<Element[]> {
+  products : any[] ;
+  connect(): Observable<any[]> {
     return Observable.of(this.products)
   }
   disconnect() {}

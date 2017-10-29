@@ -52,7 +52,7 @@
 
         <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
         <md-row *mdRowDef="let row; columns: displayedColumns;"
-                [ngClass]="row.config === 0 ? 'deselected' : ''">
+                [ngClass]="row.config === '1' ? 'configured' : ''">
         </md-row>
       </md-table>
     </md-card>

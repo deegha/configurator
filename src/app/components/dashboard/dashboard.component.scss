@@ -20,6 +20,12 @@
       color: $deselected;
     }
   }
+  .configured {
+    .mat-cell{
+      color: $configured;
+      font-weight: 800;
+    }
+  }
   .disabled {
     background: none repeat scroll 0 0 burlyWood;
     cursor: default !important;

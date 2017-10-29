@@ -1,9 +1,9 @@
 <div class="container">
   <div class="common-wrapper">
     <div class="product-name">
-        <h1>{{product?.maininfo.productAbbreviation}}</h1>
+        <!-- <h1>{{product?.productAbbreviation}}</h1> -->
     </div>
-    <form (ngSubmit)="onSubmit(configureForm.value)" [formGroup]="configureForm">  
+    <form *ngIf="configureForm" (ngSubmit)="onSubmit(configureForm.value)" [formGroup]="configureForm">  
       <md-card>
           <md-card-content>
             <md-card-title>Product</md-card-title>
@@ -11,8 +11,8 @@
             <div class="product-content">
               <div class="warapper">
                 <md-card-subtitle>Product Relationship Styles</md-card-subtitle>
-                <div class="wrapper-inner">
-                    <md-radio-group id="productLifeRelationship" 
+                <div class="wrapper-inner" >
+                    <md-radio-group 
                         [(ngModel)]="productLifeRelationship"
                         formControlName="productLifeRelationship" >
                         
@@ -95,8 +95,6 @@
                     
                   </section>
                 </div>
-                
-             
               </div>
             </div>
           </md-card-content>

@@ -12,7 +12,8 @@ import { MdGridListModule,
   MdIconModule,
   MdInputModule,
   MdSelectModule,
-  MdDialogModule
+  MdDialogModule,
+  MdSnackBarModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';  
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'configure/:product_code',  component: ConfigurationComponent },
+  { path: 'configure/:product_code/:edit',  component: ConfigurationComponent },
 ];
 
 @NgModule({
@@ -67,6 +69,7 @@ const routes: Routes = [
     MdInputModule,
     MdSelectModule,
     MdDialogModule,
+    MdSnackBarModule,
     SimpleNotificationsModule.forRoot()
   ],
   providers: [

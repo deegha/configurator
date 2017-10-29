@@ -1,4 +1,3 @@
-
 <div class="content-wrapper" [formGroup]="rForm">
   <div class="personal-details-pannerl">
       <div class="wrapper">
@@ -22,7 +21,8 @@
             </md-select>
           </div> 
           <div class="form-item-types">
-            <md-select placeholder="Heading" [disabled]="!sectionHeadings[feildIndex]"  formControlName="headings">
+            <md-select placeholder="Heading" [disabled]="!sectionHeadings[feildIndex]"  
+              formControlName="headings">
               <md-option *ngFor="let heading of sectionHeadings[feildIndex]" [value]="heading.id">
                 {{ heading.value }}
               </md-option>
