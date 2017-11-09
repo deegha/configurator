@@ -47,4 +47,29 @@
     top :   22px;
   }
 
+  .paramValuesContainer {
+    .paramValues {
+      width: 100%;
+      display: inline-flex;
+      justify-content: space-between;
+      margin: -2px 0;
+    }
+    font-size: 11;
+    margin: 20px 0;
+  }
+  
+  .wrapper-needs md-checkbox {
+    display: inline-block
+  }
+
+  ._ngcontent-c9 {
+    display: inline-block
+    }
+  .additional-feild-container {
+    width: 80%;
+    app-personaldetails {
+      width : 100%
+    }
+  }
+
 }

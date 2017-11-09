@@ -294,15 +294,15 @@ export const needs = [
   
 
 export const columns = [
-    {"id" : "1", "value" :  "Column 1"},
-    {"id" : "2", "value" :  "Column 2"},
-    {"id" : "3", "value" :  "Column 3"}
+    {"id" : 1, "value" :  "Column 1"},
+    {"id" : 2, "value" :  "Column 2"},
+    {"id" : 3, "value" :  "Column 3"}
 ]
 
 export const heading = [
-    {"id" : "1", "value" :  "Heading 1"},
-    {"id" : "2", "value" :  "Heading 2"},
-    {"id" : "3", "value" :  "Heading 3"}
+    {"id" : 1, "value" :  "Heading 1"},
+    {"id" : 2, "value" :  "Heading 2"},
+    {"id" : 3, "value" :  "Heading 3"}
 ]
 
 export const lifeRelation = [{"id":1,"life_relation":"Main Life","code":"ml","image":"","created_at":"2017-09-26 11:35:14","updated_at":"2017-09-26 00:00:00","created_by":1,"updated_by":1},{"id":2,"life_relation":"Joint Life","code":"jl","image":"","created_at":"2017-09-26 11:46:49","updated_at":"2017-09-26 00:00:00","created_by":1,"updated_by":1},{"id":3,"life_relation":"Spouse","code":"sl","image":"","created_at":"2017-09-26 11:46:43","updated_at":"2017-09-26 00:00:00","created_by":1,"updated_by":1},{"id":4,"life_relation":"Children","code":"cl","image":"","created_at":"2017-09-26 11:46:36","updated_at":"2017-09-26 00:00:00","created_by":1,"updated_by":1}]

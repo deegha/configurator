@@ -17,12 +17,24 @@ import 'rxjs/add/observable/of'
 })
 
 export class DashboardComponent implements OnInit {
-  constructor(public configurationService:ConfigurationService, 
-              private router : Router) {}
-
+  public loading = false;
+  private products : any[] = []
   displayedColumns = ['ID', 'Product Name', 'Product Code', 'Status', 'Action']
-  dataSource = new TableDataSource(this.configurationService);
-
+  dataSource : TableDataSource
+  
+  constructor(public configurationService:ConfigurationService, 
+              private router : Router) {
+                this.loading = true
+                this.configurationService.getProducts().then((res : any[])=>{ 
+                    console.log(res)
+                    this.products = res
+                    this.dataSource = new TableDataSource(this.products);
+                    this.loading = false
+            
+                }).catch(err => {
+                  console.log(err)
+                })
+              }
   status(statusCode) { 
     if(statusCode === '1')
       return true
@@ -33,28 +45,19 @@ export class DashboardComponent implements OnInit {
   clickRow(product) {
     this.router.navigate(['./configure', product.product_code])
   }
-
   ngOnInit() { }
 }
 
+
+
 export class TableDataSource extends DataSource<any> {
-  public loading = false;
-  constructor(public configurationService:ConfigurationService) {
+
+  constructor(private products : any[]) {
     super()
-    this.loading = true;
-    this.configurationService.getProducts().then((res : any[])=>{ 
-      console.log(res, "res" )
-        this.products = res;
-        this.loading  = false;
-        console.log(this.products)
-    }).catch(err => {
-      console.log(err)
-    })
   } 
-  products : any[] ;
+
   connect(): Observable<any[]> {
     return Observable.of(this.products)
   }
   disconnect() {}
-
 }

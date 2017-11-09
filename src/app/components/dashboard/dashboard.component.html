@@ -24,13 +24,11 @@
               <span *ngIf="status(product.status) === true">
                   <button 
                     md-raised-button 
-                    [disabled]="status(product.status)" 
                     color="primary">Deactivate</button>
               </span>
               <span *ngIf="status(product.status) === false" >
                   <button 
                     md-raised-button 
-                    [disabled]="status(product.status)" 
                     color="warn" 
                     (click)="activate"
                     class="btn-table">Activate</button>
@@ -44,7 +42,6 @@
             
               <button (click)="clickRow(product)" 
                       id="product.id" 
-                      [disabled]="status(product.status)" 
                       md-raised-button 
                       color="accent">Configure</button>
           </md-cell>
@@ -57,4 +54,8 @@
       </md-table>
     </md-card>
   </div>
+  <ngx-loading 
+  [show]="loading" 
+  [config]="{ backdropBorderRadius: '14px' }">
+</ngx-loading>
 </div>

@@ -3,17 +3,19 @@
       <div class="wrapper">
         <div class="extra-params">
           <div class="form-item-types">
-              <md-select placeholder="Param Type" class="params-select" formControlName="param_id">
-              <md-option *ngFor="let param of params" [value]="param.id">
+              <md-select placeholder="Param Type" 
+                class="params-select" 
+                formControlName="param_id"
+               >
+              <md-option *ngFor="let param of params" [value]="param.id" (click)="onChangeParamType(feildIndex, param)">
                 {{ param.lable_name }}
               </md-option>
             </md-select>
           </div>
           <div class="form-item-types">
             <md-select placeholder="Column"
-             
-              formControlName="coloumn">
-              <md-option *ngFor="let coloumn of coloumns"
+              formControlName="layout_column">
+              <md-option *ngFor="let coloumn of layout_column"
                 (click)="onSelectColumn(feildIndex,coloumn.id)"
                 [value]="coloumn.id" >
                 {{ coloumn.value }}
@@ -22,23 +24,41 @@
           </div> 
           <div class="form-item-types">
             <md-select placeholder="Heading" [disabled]="!sectionHeadings[feildIndex]"  
-              formControlName="headings">
+              formControlName="heading">
               <md-option *ngFor="let heading of sectionHeadings[feildIndex]" [value]="heading.id">
                 {{ heading.value }}
               </md-option>
             </md-select>
           </div>
-
           <md-radio-group 
               class="feild-tabs"
-              formControlName="feildTab" >
-            <md-radio-button value="1">Tab 1</md-radio-button>
-            <md-radio-button value="2">Tab 2</md-radio-button>
-            <md-radio-button value="3">Tab 3</md-radio-button>
-            <md-radio-button value="4">No tab</md-radio-button>
+              formControlName="tab_flag" >
+            <md-radio-button value="1">Tab 1  </md-radio-button>
+            <md-radio-button value="2">Tab 2  </md-radio-button>
+            <md-radio-button value="3">Tab 3  </md-radio-button>
+            <md-radio-button value="4">No tab </md-radio-button>
           </md-radio-group>
+         
+        </div>
+        <div *ngIf="paramValues[feildIndex]" class="paramValuesContainer">
+          <md-card-subtitle>Extra Field Values</md-card-subtitle>
+          <div class="paramValues">
+              <div *ngFor="let paramValue of paramValues[feildIndex]; let i=index" >
+                  <div class="warapper">
+                    <div class="wrapper-needs" >
+                      <md-checkbox 
+                      checked="paramValue.status"
+                      (change)="addRemoveVAlue(paramValue.id, $event)" >
+                        {{paramValue.lable}}
+                      
+                        {{paramValue.status}}
+                      </md-checkbox>
+                    </div>
+                  </div>
+              </div>
+          </div>
+         
         </div>
       </div>
   </div>
 </div>
-    

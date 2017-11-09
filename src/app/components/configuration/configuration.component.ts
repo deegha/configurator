@@ -62,7 +62,7 @@ export class ConfigurationComponent implements OnInit {
   private channels        : Channel[]
   private attachedRiders  : any[] = []
   public  configureForm   : FormGroup
-  public  heroForm : FormGroup
+  public  heroForm        : FormGroup
   private productLifeRelationship = 1
   
   private main    = true
@@ -78,43 +78,52 @@ export class ConfigurationComponent implements OnInit {
               private formBuilder: FormBuilder,
               private router : Router,
               private snackBar: MdSnackBar,
-              private gds :GlobalDataService ) {               
+              private gds :GlobalDataService ) {      
+
+                this.loading = true;
+                this.route.params.subscribe(params => {
+                  this.product_code  = params['product_code']
+                  this.configurationService
+                  .getProduct(params['product_code'])
+                    .then(response => {
+                      console.log(response, "configuration component")
+                      let productResponse = <any>response
+                      this.product = productResponse     
+                      this.buildForm(this.product)    
+
+                      this.initRiderArray(this.product.attachedRiders)
+                      this.initNeedArray (this.product.needs)
+                      this.initFeildArray (this.product.extraFeild)
+                      this.addChannels(this.product.channel)
+
+                      this.loading = false
+                  }).catch(err => {
+                    this.snackBar.open("No product found for this product ID", "No product", {
+                      duration: 4000,
+                    });
+                    console.log("No Product found", err)
+                  })
+                }, err => {
+                  this.loading = false;
+                });
               }
   
   ngOnInit() {
-    this.loading = true;
-    this.route.params.subscribe(params => {
-      this.product_code  = params['product_code']
-      this.configurationService
-      .getProduct(params['product_code'])
-        .then(response => {
-          console.log(response, "configuration component")
-          let productResponse = <any>response
-          this.product = productResponse     
-          this.buildForm(this.product)    
-          // this.productLifeRelationship = this.product.productLifeRelationship
-          this.initRiderArray(this.product.attachedRiders)
-          this.initNeedArray (this.product.needs)
-          this.initFeildArray (this.product.extraFeild)
-          // this.initProduct(this.product) 
-          this.configurationService.getChannels().then(res => {
-            this.channels = res
-          }).catch()
-          this.loading = false
-      }).catch(err => {
-        this.snackBar.open("No product found for this product ID", "No product", {
-          duration: 4000,
-        });
-        console.log("No Product found")
-      })
-    }, err => {
-      this.loading = false;
-    });
   }
  
   onSubmit(post) {
     console.log(post)
-    this.configurationService.setConfiguration(JSON.stringify(post))
+    // console.log(JSON.stringify(post))
+    // this.configurationService.setConfiguration(post).then(res => {
+    //   console.log(res, "response")
+    //   const message = {
+    //     content: 'Successful',
+    //     title: 'Configeration successful',
+    //     type: Type.SUCCESS
+    //   };
+    //   this.onConfigurationSuccess.emit();
+    //   this.gds.setNotification(message);
+    // }) 
   }
 
   initRiderArray(riders) {
@@ -135,22 +144,31 @@ export class ConfigurationComponent implements OnInit {
 
   initNeeds(need): FormGroup {
     return this.formBuilder.group({
-      id : [need.id, ""],
+      id    : [need.id, ""],
       lable : [need.lable, ""],
       value : [need.value, ""],
-      need : [need.status, ""]
+      need  : [need.status, ""]
     });
   }
 
   initRelationship(rider) : FormGroup {
     return this.formBuilder.group({
       productCode : [rider.productCode, ""],
+      productId  : [rider.productId, ""],
       mainLife  : [rider.mainLife, ""],
+      mainLife_default :[rider.mainLife_default, ""],
+      mainLife_sa : [rider.mainLife_sa, ""],
       spouse    : [rider.spouse, ""],
+      spouse_default :[rider.spouse_default, ""],
+      spouse_sa : [rider.spouse_sa, ""],
       child     : [rider.child, ""],
+      child_default :[rider.mainLife_default, ""],
+      child_sa : [rider.child_sa, ""],
       join      : [rider.join, ""],
-      sumAssured: [rider.sumAssured , ""],
-      default   : [rider.default, ""],
+      join_default :[rider.join_default, ""],
+      join_sa : [rider.join_sa, ""],
+      sumAssured: [rider.mainLife_sa , ""],
+      default   : [rider.mainLife_default, ""],
     })
   }
 
@@ -164,42 +182,51 @@ export class ConfigurationComponent implements OnInit {
 
   initFeild(feild=null): FormGroup {
     return this.formBuilder.group({
-      param_id : [(feild)?feild.param_id: "", Validators.required],
-      coloumn  : [(feild)?feild.coloumn: "", Validators.required],
-      headings : [(feild)?feild.headings: "", Validators.required],
-      feildTab : [(feild)?feild.feildTab: "", ]
+      param_id : [(feild)?feild.product_param_id: "", Validators.required],
+      layout_column  : [(feild)?feild.layout_column: "", Validators.required],
+      heading : [(feild)?feild.heading: "", Validators.required],
+      layout :  [1],
+      tab_flag : [(feild)?feild.tab_flag: "", ],
+      sequence : [1],
+      values:  this.formBuilder.array([])
     });
   }
 
-  // initProduct(product) : void {
-
-  //   // const pd = this.formBuilder.group({
-  //   //   productLifeRelationship: [product.productLifeRelationship, Validators.required],
-  //   //   channel: [product.channel, Validators.required],
-  //   // });
-  //   const control = <FormArray>this.configureForm.controls['productDetails']
-  //   const pd = this.createProductDetails(product)
-  //   control.push(pd)
-  // }
-
-  // createProductDetails(product) : FormGroup {
-  //   return this.formBuilder.group({
-  //     productLifeRelationship: [product.productLifeRelationship, Validators.required],
-  //     channel: [product.channel, Validators.required],
-  //   });
-  // } 
-
+  initMultivalues(value) : FormGroup  {
+    return this.formBuilder.group({
+      id : [(value)?value.id : "", ""],
+      lable : [(value)?value.lable : "", ""],
+      value : [(value)?value.value : "", ""],
+      status : [(value)?value.status : "", ""]
+    }) 
+  }
 
   addFeild() {
     const control = <FormArray>this.configureForm.controls['extraFeild'];
     const feildCtrl = this.initFeild();
     control.push(feildCtrl);
-    console.log(control)
   }
 
   removeFeild(i: number) {
     const control = <FormArray>this.configureForm.controls['extraFeild'];
     control.removeAt(i);
+  }
+
+  addChannels(channels) {
+    channels.map(channel => {
+      const control = <FormArray>this.configureForm.controls['channel'];
+      const channelCtrl = this.initChannel(channel);
+      control.push(channelCtrl);
+      console.log(channelCtrl, "after")
+    })
+  }
+
+  initChannel(channel) : FormGroup {
+    return this.formBuilder.group({
+      id : [channel.id],
+      name : [channel.name],
+      checked : [channel.checked]
+    })
   }
 
   /**
@@ -208,13 +235,13 @@ export class ConfigurationComponent implements OnInit {
    */
   private buildForm(product): void {
     this.configureForm = this.formBuilder.group({
-      productLifeRelationship: [product.productLifeRelationship, Validators.required],
-      channel: [product.channel, Validators.required],
+      productLifeRelationship: ["2", Validators.required],
+      channel: this.formBuilder.array([]),
       extraFeild: this.formBuilder.array([]),
-      attachedRiders :  this.formBuilder.array([ ]),
-      needs :  this.formBuilder.array([ ]),
+      attachedRiders :  this.formBuilder.array([]),
+      needs :  this.formBuilder.array([]),
+      product_code : [this.product_code, ""]
     });
-   
-     console.log(this.configureForm)
+    console.log(this.configureForm)
   }  
 }

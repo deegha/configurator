@@ -18,11 +18,13 @@ export class ConfigurationService {
   private options : RequestOptions 
   
   constructor(public http : Http) { 
-    this.api_url = "http://ualtpayment.ualink.lk/";
-    this.cloud_api_url = "https://sandbox.gw.ebaocloud.com.cn/eBao/1.0"
+    // this.api_url = "http://ualtpayment.ualink.lk/";
+    this.api_url = "https://91fecd5e.ngrok.io/katana_dat/public/";
+    // this.api_url = "http://2332031b.ngrok.io/katana_dat/public/";
+  
     this.setHeaders()
   }
-
+  
   setHeaders() : void {
     let authToken    = constants.AUTH_TOKEN 
     let headers      = new Headers({ 'Accept': 'application/json' })
@@ -37,23 +39,7 @@ export class ConfigurationService {
   
   getProducts() {
     let url = this.api_url+'product'
-    // return new Promise((resolve, reject) => {
-    //   this.http.get(url)
-    //     .map(res => res.json())
-    //     .subscribe(data => {
-    //       resolve(data)
-    //     },err => {
-    //       console.log(err, "Check service")
-    //       return reject()
-    //     })                                                                                                                                                                                                                                                                                                          
-    // })
-    return new Promise(resolve=>{
-      resolve(SampleData.sampleData);
-    })
-  }
-
-  getProduct(code) {
-    let url = this.api_url+'get_product_details/'+code
+   
     return new Promise((resolve, reject) => {
       this.http.get(url)
         .map(res => res.json())
@@ -64,11 +50,21 @@ export class ConfigurationService {
           return reject()
         })                                                                                                                                                                                                                                                                                                          
     })
+  }
 
-
-    // return new Promise(resolve=>{
-    //   resolve(SampleData.product);
-    // })
+  getProduct(code) {
+    let url = this.api_url+'get_product_details/'+code
+    console.log(url)
+    return new Promise((resolve, reject) => {
+      this.http.get(url)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data)
+        },err => {
+          console.log(err, "Check service")
+          return reject()
+        })                                                                                                                                                                                                                                                                                                          
+    })
   }
 
   getChannels() : Promise<Channel[]> {
@@ -84,9 +80,20 @@ export class ConfigurationService {
   }
 
   getParams()  { 
-    return new Promise(resolve=>{
-      resolve(SampleData.params)
+    let url = this.api_url+'param'
+    return new Promise((resolve, reject) => {
+      this.http.get(url)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data)
+        },err => {
+          console.log(err, "Check service")
+          return reject()
+        })                                                                                                                                                                                                                                                                                                          
     })
+    // return new Promise(resolve=>{
+    //   resolve(SampleData.params)
+    // })
   }
 
   getHeadings(col) {
@@ -106,10 +113,23 @@ export class ConfigurationService {
   //     resolve(true)
   //   })
   // }
-  setConfiguration(data:any): Observable<any> {console.log(data)
+  setConfiguration(data:any): Promise<any> {
+
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.api_url, data, options) 
+    let url = this.api_url+'set_product_details'
+    let response
+
+    return new Promise((resolve , reject) => {
+        // response = this.http.post(url, data, options)
+        // console.log(response)
+        // resolve(response)
+        this.http.post(url, data, options).toPromise().then(res => {
+          resolve(res)
+        }, err =>{
+          reject(err)
+        })
+    }) 
   }
 
   getAllNeeds() : Promise<any[]> {
