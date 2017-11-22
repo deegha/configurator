@@ -117,7 +117,7 @@
                   <i class="material-icons clear-btn-addinput" (click)="removeFeild(i)">clear</i>
                   <app-personaldetails 
                     [feildIndex] = "i"
-                    [values] = "extraFeild"
+                    [values] = "product.extraFeild[i]"
                     [group]="configureForm.controls.extraFeild.controls[i]"></app-personaldetails>
                 </div>
               </div>
@@ -128,7 +128,7 @@
                 </a>
             </div>
           </div>
-          <div class="warapper">
+          <!-- <div class="warapper">
             <md-card-subtitle>Needs</md-card-subtitle>
             <div class="wrapper-needs" formArrayName="needs">
               <div *ngFor="let need of configureForm.controls.needs.controls; let i=index"
@@ -139,13 +139,12 @@
                   </md-checkbox>
               </div>
             </div>
-          </div>
+          </div> -->
         </md-card-content>
       </md-card>
       
       <div class="submit-btn-area">
         <button type="submit" 
-          [disabled]="!configureForm.valid"
           md-raised-button 
           color="primary">Set Configuration</button>
       </div>

@@ -39,7 +39,14 @@ export class PersonaldetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
+    if(this.values && this.values.values) {
+      this.onChangeParamType(this.feildIndex,this.values)
+      this.values.values.map(value => {
+        if(value.status === true)
+          this.addRemoveVAlue(value, true)
+      })
+    }
   }  
 
   onSelectColumn(feidId, col) { 
@@ -49,26 +56,53 @@ export class PersonaldetailsComponent implements OnInit {
     })
   }
 
-  onChangeParamType(feildIndex,params) {
-    console.log(this.values)
-     this.paramValues[feildIndex] = this.values
-     console.log(feildIndex,this.paramValues )
+  onChangeParamType(feildIndex,params) { console.log(params, this.values)
+    if(this.values.values === null ){
+      this.params.map(param => {
+        if(param.lable_name === params.lable_name) {
+          this.paramValues[feildIndex] = param.values
+        }        
+      })
+ 
+    } else{ 
+      let checked = this.values.values.filter(value => {
+        return value.status === true
+      })
+      this.paramValues[feildIndex] = params.values
+    }
+    
+
+
+
+
+    // this.paramValues[feildIndex].map((pvalue, key) => {
+    //   checked.map(checkedvalue => {
+    //     if(checkedvalue.value === pvalue.value) {
+    //       this.paramValues[feildIndex][key]['checked'] = true
+    //     }else{
+    //       this.paramValues[feildIndex][key]['checked'] = false
+    //     }
+    //   })
+    // })
   }
 
-  initMutltiValueId (id_value) {
+  initMutltiValueId (param) {
     return this.formBuilder.group({
-      id : [id_value]
+      id    : [param.id],
+      lable : [param.lable],
+      value : [param.value],
+      status : ["true"]
     })
   }
 
-  addRemoveVAlue(value_id, event) {
-    const control = <FormArray>this.rForm.controls['values'];
-    let multivalue = this.initMutltiValueId(value_id)
-    
-    if(event.checked) {
+  addRemoveVAlue(param, checked) { 
+    const control = <FormArray>this.rForm.controls['values']
+
+    if(checked) {
+      let multivalue = this.initMutltiValueId(param)
       control.push(multivalue)
     }else{
-      control.removeAt(control.value.indexOf(value_id))
+      control.removeAt(control.value.indexOf(param.id))
     }
   }
 }

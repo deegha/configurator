@@ -62,7 +62,6 @@ export class ConfigurationComponent implements OnInit {
   private channels        : Channel[]
   private attachedRiders  : any[] = []
   public  configureForm   : FormGroup
-  public  heroForm        : FormGroup
   private productLifeRelationship = 1
   
   private main    = true
@@ -113,17 +112,17 @@ export class ConfigurationComponent implements OnInit {
  
   onSubmit(post) {
     console.log(post)
-    // console.log(JSON.stringify(post))
-    // this.configurationService.setConfiguration(post).then(res => {
-    //   console.log(res, "response")
-    //   const message = {
-    //     content: 'Successful',
-    //     title: 'Configeration successful',
-    //     type: Type.SUCCESS
-    //   };
-    //   this.onConfigurationSuccess.emit();
-    //   this.gds.setNotification(message);
-    // }) 
+    console.log(JSON.stringify(post))
+    this.configurationService.setConfiguration(post).then(res => {
+      console.log(res, "response")
+      const message = {
+        content: 'Successful',
+        title: 'Configeration successful',
+        type: Type.SUCCESS
+      };
+      this.onConfigurationSuccess.emit();
+      this.gds.setNotification(message);
+    }) 
   }
 
   initRiderArray(riders) {
@@ -208,7 +207,9 @@ export class ConfigurationComponent implements OnInit {
   }
 
   removeFeild(i: number) {
+    console.log(i)
     const control = <FormArray>this.configureForm.controls['extraFeild'];
+    console.log(control)
     control.removeAt(i);
   }
 
@@ -242,6 +243,5 @@ export class ConfigurationComponent implements OnInit {
       needs :  this.formBuilder.array([]),
       product_code : [this.product_code, ""]
     });
-    console.log(this.configureForm)
   }  
 }

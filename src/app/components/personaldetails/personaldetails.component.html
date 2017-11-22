@@ -38,26 +38,22 @@
             <md-radio-button value="3">Tab 3  </md-radio-button>
             <md-radio-button value="4">No tab </md-radio-button>
           </md-radio-group>
-         
         </div>
-        <div *ngIf="paramValues[feildIndex]" class="paramValuesContainer">
+        <div *ngIf="paramValues[feildIndex] != null" class="paramValuesContainer">
           <md-card-subtitle>Extra Field Values</md-card-subtitle>
           <div class="paramValues">
               <div *ngFor="let paramValue of paramValues[feildIndex]; let i=index" >
                   <div class="warapper">
                     <div class="wrapper-needs" >
                       <md-checkbox 
-                      checked="paramValue.status"
-                      (change)="addRemoveVAlue(paramValue.id, $event)" >
+                      [(checked)]="paramValue.status"
+                      (change)="addRemoveVAlue(paramValue, $event.checked)" >
                         {{paramValue.lable}}
-                      
-                        {{paramValue.status}}
                       </md-checkbox>
                     </div>
                   </div>
               </div>
           </div>
-         
         </div>
       </div>
   </div>
