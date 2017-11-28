@@ -13,7 +13,9 @@ import { MdGridListModule,
   MdInputModule,
   MdSelectModule,
   MdDialogModule,
-  MdSnackBarModule
+  MdSnackBarModule,
+  MdDatepickerModule,
+  MdNativeDateModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';  
@@ -23,9 +25,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } 
         from './components/dashboard/dashboard.component'
 import { ConfigurationComponent } 
-        from './components/configuration/configuration.component'
-
-import { PersonaldetailsModule } from './components/personaldetails/personaldetails.module'       
+        from './components/configuration/configuration.component'    
 
 import { ConfigurationService } 
         from './providers/configuration.service'
@@ -70,10 +70,12 @@ const routes: Routes = [
     MdSelectModule,
     MdDialogModule,
     MdSnackBarModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
     SimpleNotificationsModule.forRoot()
   ],
   providers: [
-    ConfigurationService,GlobalDataService
+    ConfigurationService,GlobalDataService, MdNativeDateModule
   ],
   bootstrap: [AppComponent]
 })

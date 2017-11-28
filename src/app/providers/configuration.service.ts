@@ -19,8 +19,9 @@ export class ConfigurationService {
   
   constructor(public http : Http) { 
     // this.api_url = "http://ualtpayment.ualink.lk/";
-    this.api_url = "https://57a13997.ngrok.io/katana_dat/public/";
-  
+    this.api_url = "https://4162a4cc.ngrok.io/katana_dat/public/";
+    // this.api_url = "http://dat.me/";
+
     this.setHeaders()
   }
   

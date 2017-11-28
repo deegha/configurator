@@ -58,9 +58,9 @@ import { Configurator } from '../../models/configurarator'
 export class ConfigurationComponent implements OnInit {
   private id              : number
   private product_code    : string
-  private product         : any
-  private channels        : Channel[]
-  private attachedRiders  : any[] = []
+  public product         : any
+  public channels        : Channel[]
+  public attachedRiders  : any[] = []
   public  configureForm   : FormGroup
   private productLifeRelationship = 1
   
@@ -185,7 +185,7 @@ export class ConfigurationComponent implements OnInit {
       layout_column  : [(feild)?feild.layout_column: "", Validators.required],
       heading : [(feild)?feild.heading: "", Validators.required],
       layout :  [1],
-      tab_flag : [(feild)?feild.tab_flag: "", ],
+      tab_flag : [(feild)?String(feild.tab_flag): "", ],
       sequence : [1],
       values:  this.formBuilder.array([])
     });
@@ -230,18 +230,25 @@ export class ConfigurationComponent implements OnInit {
     })
   }
 
+  selectReleationship(value) {
+    this.productLifeRelationship = value
+  }
+
   /**
    * 
    * Builds the master form.
    */
-  private buildForm(product): void {
-    this.configureForm = this.formBuilder.group({
-      productLifeRelationship: ["2", Validators.required],
+  private buildForm(product): void { 
+    this.productLifeRelationship = product.productLifeRelationship
+    this.configureForm = this.formBuilder.group({ 
+      productLifeRelationship: [String(product.productLifeRelationship), Validators.required],
+      defaultDob: [],
       channel: this.formBuilder.array([]),
       extraFeild: this.formBuilder.array([]),
       attachedRiders :  this.formBuilder.array([]),
       needs :  this.formBuilder.array([]),
-      product_code : [this.product_code, ""]
+      product_code : [this.product_code, ""],
+      bsa_isset : [product.bsa_isset],
     });
   }  
 }

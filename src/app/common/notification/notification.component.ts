@@ -11,7 +11,7 @@ import { GlobalDataService } from '../global-data.service';
 })
 
 export class NotificationComponent {
-  private options = {
+  public options = {
     timeOut: 3000,
     lastOnBottom: true,
     clickToClose: true,

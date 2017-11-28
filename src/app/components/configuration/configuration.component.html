@@ -15,15 +15,26 @@
                 <md-card-subtitle>Product Relationship Styles</md-card-subtitle>
                 <div class="wrapper-inner" >
                     <md-radio-group 
-                        [(ngModel)]="productLifeRelationship"
+                        (change) = "selectReleationship($event.value)"
                         formControlName="productLifeRelationship" >
                         
                       <md-radio-button value="1">Single</md-radio-button>
-                      <md-radio-button value="2">Family</md-radio-button>
-                      <md-radio-button value="3">Joint</md-radio-button>
+                      <md-radio-button value="3">Family</md-radio-button>
+                      <md-radio-button value="2">Joint</md-radio-button>
                     </md-radio-group>
                 </div>
               </div>
+
+              <div class="warapper">
+                  <md-card-subtitle>Default DOB</md-card-subtitle>
+                  <div class="wrapper-inner" >
+                    <md-form-field>
+                        <input mdInput formControlName="defaultDob" [mdDatepicker]="picker" placeholder="Choose a date">
+                        <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                        <md-datepicker #picker></md-datepicker>
+                    </md-form-field>
+                  </div>
+                </div>
 
               <div class="warapper">
                 <md-card-subtitle>Channel</md-card-subtitle>
@@ -31,10 +42,16 @@
                   <div class="wrapper-channels" formArrayName="channel">
                     <div *ngFor="let channel of configureForm.controls.channel.controls; let i=index"
                     [formGroup]="configureForm.controls.channel.controls[i]" >
-                        <md-checkbox 
-                          formControlName="checked" >
+                      
                           {{channel.value.name}}
-                        </md-checkbox>
+                        
+                        <div class="sub_channel">
+                          <div *ngFor="let s_channel of channel.value.sub_channels">
+                            eeers
+                              {{ s_channel.name }}
+                           
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -53,52 +70,103 @@
                     {{rider.value.productCode}}
                   </div>
                   
-                  <div class="wrapper-default-check">
-                    <md-checkbox 
-                      formControlName="mainLife_default"
-                      color = "primary">
-                      Default
-                    </md-checkbox>
-                    <md-form-field 
-                      *ngIf="rider.value.mainLife_default"
-                      class="sum-assured" >
-                      <input mdInput
-                            formControlName="mainLife_sa" 
-                            placeholder="Sum assured">
-                    </md-form-field>
-                  </div>
+                  
                 </div>
                 
                 <div class="relationship">
                   <section>
-                    <md-checkbox 
-                      *ngIf     = "productLifeRelationship == 1 
-                      || productLifeRelationship == 2 
-                      || productLifeRelationship == 3"
-                      formControlName="mainLife"
-                      [checked] = "main">
-                      Main Life
-                    </md-checkbox>
+                    <div class="common_rider_wrapper" *ngIf     = "productLifeRelationship == 1 
+                    || productLifeRelationship == 2 
+                    || productLifeRelationship == 3"> 
+                      <md-checkbox 
+                        
+                        formControlName="mainLife"
+                        [checked] = "main">
+                        Main Life
+                      </md-checkbox>
+                      <div class="wrapper-default-check">
+                        <md-checkbox 
+                          formControlName="mainLife_default"
+                          color = "primary">
+                          Default
+                        </md-checkbox>
+                        <md-form-field 
+                
+                          class="sum-assured" >
+                          <input mdInput
+                                formControlName="mainLife_sa" 
+                                placeholder="Sum assured">
+                        </md-form-field>
+                      </div>
+                    </div>
+                    <div class="common_rider_wrapper"  *ngIf   = "productLifeRelationship == 3"> 
+                      <md-checkbox 
+                        formControlName="spouse"
+                        >
+                        Spouse
+                      </md-checkbox>
+                      <div class="wrapper-default-check">
+                        <md-checkbox 
+                          formControlName="spouse_default"
+                          color = "primary">
+                          Default
+                        </md-checkbox>
+                        <md-form-field 
+                
+                          class="sum-assured" >
+                          <input mdInput
+                                formControlName="spouse_sa" 
+                                placeholder="Sum assured">
+                        </md-form-field>
+                      </div>
+                    </div>
 
-                    <md-checkbox 
-                      formControlName="spouse"
-                      *ngIf   = "productLifeRelationship == 2" >
-                      Spouse
-                    </md-checkbox>
+                    <div class="common_rider_wrapper"  *ngIf   = "productLifeRelationship == 3" > 
+                      <md-checkbox 
+                        formControlName="child"
+                       >
+                        Child
+                      </md-checkbox>
+                      <div class="wrapper-default-check">
+                          <md-checkbox 
+                            formControlName="child_default"
+                            color = "primary">
+                            Default
+                          </md-checkbox>
+                          <md-form-field 
+                  
+                            class="sum-assured" >
+                            <input mdInput
+                                  formControlName="child_sa" 
+                                  placeholder="Sum assured">
+                          </md-form-field>
+                        </div>
+                    </div>
 
-                    <md-checkbox 
-                      formControlName="child"
-                      *ngIf   = "productLifeRelationship == 2" >
-                      Child
-                    </md-checkbox>
-
-                    <md-checkbox 
-                      formControlName="join"
-                      *ngIf   = "productLifeRelationship == 3" >
-                      Join
-                    </md-checkbox>
-                    
+                    <div class="common_rider_wrapper"  *ngIf   = "productLifeRelationship == 2" > 
+                      <md-checkbox 
+                        formControlName="join"
+                       >
+                        Join
+                      </md-checkbox>
+                      <div class="wrapper-default-check">
+                          <md-checkbox 
+                            formControlName="join_default"
+                            color = "primary">
+                            Default
+                          </md-checkbox>
+                          <md-form-field 
+                  
+                            class="sum-assured" >
+                            <input mdInput
+                                  formControlName="join_sa" 
+                                  placeholder="Sum assured">
+                          </md-form-field>
+                        </div>
+                    </div>
+                  
                   </section>
+                  <hr class="liner-breaker">
                 </div>
               </div>
             </div>

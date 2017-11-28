@@ -14,17 +14,17 @@ export class PersonaldetailsComponent implements OnInit {
   @Input() values
   @Input('group')
   public  rForm    : FormGroup
-  private extraFeild
+  public extraFeild
   public  loading = false
   
-  private personalInpuFeildsMain : any[] = []
-  private layout_column: any
-  private params: any
-  private sectionHeadings : any[] = [];
+  public personalInpuFeildsMain : any[] = []
+  public layout_column: any
+  public params: any
+  public sectionHeadings : any[] = [];
 
-  private diableHeading = true
-  private param_id : number = 0;
-  private paramValues : any[] = []
+  public diableHeading = true
+  public param_id : number = 0;
+  public paramValues : any[] = []
 
   constructor(private configurationService : ConfigurationService, private formBuilder: FormBuilder) {
     this.loading = true;
